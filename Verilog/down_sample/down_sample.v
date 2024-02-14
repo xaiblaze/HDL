@@ -39,9 +39,10 @@ module down_sample
       r_ds8 <= 0;
     end else begin
       count <= count + 1;
+    end
   end
     
-    always @(posedge i_clk) begin : count_compare
+    always @(posedge i_clk) begin
       if(count[1:0] == 2'b10) begin
         	o_ds2 <= r_data2;
         	r_ds2 <= r_data2;
