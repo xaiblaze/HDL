@@ -4,20 +4,21 @@ module down_sample
     (
     input i_clk,
     input i_rst,
-    input i_data,
-      output reg[15:0] o_ds2,
-      output reg[15:0] o_ds4,
-      output reg[15:0] o_ds8
+    input signed[data_width-1:0] i_data,
+      output reg signed[15:0] o_ds2,
+      output reg signed[15:0] o_ds4,
+      output reg signed[15:0] o_ds8
     );
   
   reg[4:0] count;
-  reg r_data1 = 0;
-  reg r_data2 = 0;
+  reg signed[15:0] r_data1;
+  reg signed[15:0] r_data2;
   
-  reg[15:0] r_ds2 = 0;
-  reg[15:0] r_ds4 = 0;
-  reg[15:0] r_ds8 = 0;
+  reg signed[15:0] r_ds2;
+  reg signed[15:0] r_ds4;
+  reg signed[15:0] r_ds8;
   
+  initial count = 0;
   
   //double register input data
   always @(posedge i_clk) begin
