@@ -7,15 +7,15 @@ module down_sample_tb();
   parameter data_width = 16;
   
   integer fd, tmp;
-  reg[data_width-1:0] num;
+  reg signed[data_width-1:0] num;
   
   reg i_clk = 0;
   reg i_rst = 0;
-  reg[data_width-1:0] i_data;
+  reg signed[data_width-1:0] i_data;
   
-  wire[15:0] w_ds2;
-  wire[15:0] w_ds4;
-  wire[15:0] w_ds8;
+  wire signed[15:0] w_ds2;
+  wire signed[15:0] w_ds4;
+  wire signed[15:0] w_ds8;
   
   always #5 i_clk <= !i_clk;
   
